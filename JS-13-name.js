@@ -146,3 +146,33 @@ const names = [
   "Naomi",
 ];
 //! Answer:
+
+let validInput = false;
+
+while (!validInput) {
+  let char = prompt("Enter just one alphabet:");
+  if (char && char.length === 1) {
+    let lowerChar = char.toLowerCase();
+
+    if (lowerChar >= "a" && lowerChar <= "z") {
+      validInput = true;
+
+      const filteredNames = [];
+      for (let name of names) {
+        if (name[0].toLowerCase() === lowerChar) {
+          filteredNames.push(name);
+        }
+      }
+
+      if (filteredNames.length > 0) {
+        console.log(filteredNames.join(", "));
+      } else {
+        console.log("nothing found");
+      }
+    } else {
+      alert("Please enter just one alphabet.");
+    }
+  } else {
+    alert("Please enter just one alphabet.");
+  }
+}
